@@ -8,6 +8,13 @@ public class FileContentReverser {
 
     /**
      * Reverses the contents provided 
+     * Below scenarios are covered as part of its logic:
+       1. Single word
+       2. Empty Input
+       3. Long Input
+       4. Data with new line character
+       5. Data with Special characters
+       6. Data within brackets will be handled to keep sorting within bracket only
      *
      * @param String to get the content
      */
