@@ -24,13 +24,14 @@ public class Main {
             System.exit(1);
         }
 
-        // Create an instance of the FileContentReverser
+        // Create an instance of the FileContentReverser and FileOpertions
         FileContentReverser reverser = new FileContentReverser();
+        FileOperations operations = new FileOperations();
 
         try {
-            String content = reverser.readFile(inputFile);
+            String content = operations.readFile(inputFile);
             content = reverser.reverseContents(content);
-            reverser.writeFile(outputFile, content);
+            operations.writeFile(outputFile, content);
             System.out.println("Reversed contents written to: "+outputFile);
         } catch (IOException e) {
             System.err.println("An error occurred while processing the files: " + e.getMessage());

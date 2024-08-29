@@ -1,10 +1,5 @@
 package com.example;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -80,39 +75,6 @@ public class FileContentReverser {
 
         // Return the final string with brackets preserved in their positions
         return new String(result);
-    }
-
-    /**
-     *  Reads the contents of the input file and 
-     * returns it in form of StringBuilder
-     *
-     * @param inputFile  the path of the input file
-     * @return content read from input file
-     * @throws IOException if an I/O error occurs
-     */
-    public String readFile(Path inputFile) throws IOException {
-        StringBuilder content = new StringBuilder();
-        String line;
-
-        // Read the entire content
-        try (BufferedReader reader = Files.newBufferedReader(inputFile)) {
-            while ((line = reader.readLine()) != null) {
-                content.append(line);
-            }
-        }                        
-        return content.toString();
-    }
-
-    /**
-     * Writes the contents to given outputFile
-     *
-     * @param outputFile the path of the output file
-     * @throws IOException if an I/O error occurs
-     */
-    public void writeFile(Path outputFile, String content) throws IOException {
-        try (BufferedWriter writer = Files.newBufferedWriter(outputFile)) {
-                writer.write(content.toString());
-        }               
     }
 
 }

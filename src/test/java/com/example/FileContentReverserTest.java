@@ -4,12 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
-
 class FileContentReverserTest {
 
     @Test
@@ -57,7 +51,7 @@ class FileContentReverserTest {
         assertEquals(expectedOutput, actualOutput);
     }
     @Test
-    void testReverseContentsWithNewLines() throws IOException {
+    void testReverseContentsWithNewLines(){
         // Arrange
         String input = "Line 1\nLine 2";
         String expectedOutput = "2 eniL\n1 eniL";
@@ -72,10 +66,10 @@ class FileContentReverserTest {
     }
 
     @Test
-    void testReverseContentsWithSpecialCharacters() throws IOException {
+    void testReverseContentsWithSpecialCharacters(){
         // Arrange
         String input = "!@#$$%^&*()";
-        String expectedOutput = "()*&^%$$#@!";
+        String expectedOutput = "*&^%$$#@!()";
 
         FileContentReverser reverser = new FileContentReverser();
 
@@ -87,10 +81,25 @@ class FileContentReverserTest {
     }
 
     @Test
-    void testReverseContentsWithLargeInput() throws IOException {
+    void testReverseContentsWithLargeInput() {
         // Arrange
         String input = "A".repeat(10000);
         String expectedOutput = "A".repeat(10000);
+
+        FileContentReverser reverser = new FileContentReverser();
+
+        // Act
+        String actualOutput = reverser.reverseContents(input);        
+
+        // Assert
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void testReverseContentsWithDataInBrackets() {
+        // Arrange
+        String input = "abc(def)ghi";
+        String expectedOutput = "ihg(fed)cba";
 
         FileContentReverser reverser = new FileContentReverser();
 
