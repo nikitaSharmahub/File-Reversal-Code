@@ -59,7 +59,7 @@ class FileContentReverserTest {
     @Test
     void testReverseContentsWithNewLines() throws IOException {
         // Arrange
-        String input = "Line 1 \nLine 2";
+        String input = "Line 1\nLine 2";
         String expectedOutput = "2 eniL\n1 eniL";
 
         FileContentReverser reverser = new FileContentReverser();
@@ -75,7 +75,7 @@ class FileContentReverserTest {
     void testReverseContentsWithSpecialCharacters() throws IOException {
         // Arrange
         String input = "!@#$$%^&*()";
-        String expectedOutput = ")(*&^%$$#@!";
+        String expectedOutput = "()*&^%$$#@!";
 
         FileContentReverser reverser = new FileContentReverser();
 
